@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import logger from 'js-logger';
+import { WEBGL } from 'three/examples/jsm/WebGL';
 
 import App from 'app';
 import store from 'state/store';
@@ -17,9 +18,20 @@ logger.useDefaults({
   },
 });
 
+const RootComponent = () => {
+  // WebGL 2 is required - fail to load the app if not available
+  if (!WEBGL.isWebGL2Available()) {
+    return <>{ WEBGL.getWebGL2ErrorMessage().textContent }</>;
+  }
+
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
+
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <RootComponent />,
   document.getElementById('root'),
 );
