@@ -27,7 +27,7 @@
     "start": "rescripts start",
     "build": "rescripts build",
     "test": "rescripts test",
-    "eject": "rescripts eject"
+    "lint": "eslint src"
   },
   "eslintConfig": {
     "extends": "react-app"
