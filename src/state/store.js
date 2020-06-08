@@ -6,7 +6,7 @@ import {
 } from 'redux';
 import { createLogger } from 'redux-logger';
 
-import myReducer from 'state/my-functionality/reducers';
+import terrain from 'state/terrain/reducers';
 
 const middlewares = [];
 
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const store = compose(applyMiddleware(...middlewares))(createStore)(
   combineReducers({
-    myReducer,
+    terrain,
   }),
 );
 

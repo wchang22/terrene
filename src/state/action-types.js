@@ -6,6 +6,6 @@
  */
 
 // eslint-disable-next-line import/prefer-default-export
-export const MyAction = Object.freeze({
-  ACTION: 'MyAction_ACTION',
+export const TerrainAction = Object.freeze({
+  OPTIONS: 'TerrainAction_OPTIONS',
 });

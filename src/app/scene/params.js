@@ -29,8 +29,10 @@ const params = Object.freeze({
     colorMap: '/assets/aerial_grass_rock/aerial_grass_rock_diff_2k.jpg',
     colorMapScale: [10, 10],
     normalMap: '/assets/aerial_grass_rock/aerial_grass_rock_nor_2k.jpg',
-    height: 3.0,
-    spacing: 0.25,
+    uniforms: {
+      height: 3.0,
+      spacing: 0.25,
+    },
   },
 });
 

@@ -1,7 +1,10 @@
-import React, { useMemo, memo } from 'react';
+import React, { useMemo, memo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import update from 'immutability-helper';
 
 import sceneParams from 'app/scene/params';
 import TerrainShaderMaterial from 'app/scene/terrain/TerrainShaderMaterial';
+import { getTerrainOptions } from 'state/terrain/selectors';
 
 const Terrain = () => {
   const {
@@ -9,6 +12,20 @@ const Terrain = () => {
   } = sceneParams.terrain;
 
   const terrainShaderMaterial = useMemo(() => new TerrainShaderMaterial(), []);
+
+  const terrainOptions = useSelector(getTerrainOptions);
+
+  useEffect(() => {
+    const { uniforms } = terrainShaderMaterial;
+    Object.assign(uniforms, update(uniforms, {
+      terrainHeight: {
+        value: { $set: terrainOptions.height },
+      },
+      terrainSpacing: {
+        value: { $set: terrainOptions.spacing },
+      },
+    }));
+  }, [terrainShaderMaterial, terrainOptions]);
 
   return (
     <group>

@@ -14,7 +14,7 @@ class TerrainShaderMaterial extends THREE.ShaderMaterial {
       fog: true,
     });
 
-    const { terrain } = sceneParams;
+    const { terrain, terrain: { uniforms } } = sceneParams;
 
     const textureLoader = new THREE.TextureLoader();
 
@@ -29,8 +29,8 @@ class TerrainShaderMaterial extends THREE.ShaderMaterial {
         colorMapOffset: { type: 'v2', value: [0, 0] },
         colorMapScale: { type: 'v2', value: terrain.colorMapScale },
 
-        terrainHeight: { type: 'f', value: terrain.height },
-        terrainSpacing: { type: 'f', value: terrain.spacing },
+        terrainHeight: { type: 'f', value: uniforms.height },
+        terrainSpacing: { type: 'f', value: uniforms.spacing },
       });
   }
 }

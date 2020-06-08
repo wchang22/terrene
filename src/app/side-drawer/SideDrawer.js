@@ -1,5 +1,10 @@
 import React, { memo } from 'react';
-import { Drawer } from '@material-ui/core';
+import {
+  Drawer,
+  List,
+} from '@material-ui/core';
+
+import TerrainOptions from 'app/side-drawer/terrain-list-section';
 
 import useStyles from './styles';
 
@@ -14,7 +19,11 @@ const SideDrawer = () => {
       classes={{
         paper: styles.sideDrawer,
       }}
-    />
+    >
+      <List>
+        <TerrainOptions />
+      </List>
+    </Drawer>
   );
 };
 
