@@ -12,17 +12,25 @@ const params = Object.freeze({
         intensity: 0.4,
       },
     ],
+    hemisphere: {
+      skyColor: 'lightblue',
+      groundColor: 'brown',
+      intensity: 0.2,
+    },
   },
   fog: {
     color: 'lightgrey',
-    density: 0.1,
+    density: 0.05,
   },
-  grid: {
-    size: 200,
-    divisions: 500,
+  terrain: {
+    size: 30,
+    divisions: 250,
     position: [0, 0, 0],
-    centerline_color: 'grey',
-    grid_color: 'grey',
+    colorMap: '/assets/aerial_grass_rock/aerial_grass_rock_diff_2k.jpg',
+    colorMapScale: [10, 10],
+    normalMap: '/assets/aerial_grass_rock/aerial_grass_rock_nor_2k.jpg',
+    height: 3.0,
+    spacing: 0.25,
   },
 });
 

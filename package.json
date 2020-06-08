@@ -10,8 +10,10 @@
     "@testing-library/user-event": "^7.2.1",
     "@welldone-software/why-did-you-render": "^4.2.5",
     "drei": "0.0.55",
+    "glslify-loader": "^2.0.0",
     "immutability-helper": "^3.1.1",
     "js-logger": "^1.6.0",
+    "raw-loader": "^4.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -22,10 +24,10 @@
     "three": "^0.117.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "rescripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,6 +45,9 @@
     ]
   },
   "devDependencies": {
+    "@rescripts/cli": "0.0.14",
+    "@rescripts/rescript-env": "0.0.12",
+    "@rescripts/utilities": "0.0.7",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",

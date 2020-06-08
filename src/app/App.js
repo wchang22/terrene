@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import { Canvas } from 'react-three-fiber';
-import { PerspectiveCamera, OrbitControls } from 'drei';
+import { PerspectiveCamera, OrbitControls, Stats } from 'drei';
 
 import SideDrawer from 'app/side-drawer';
 import Scene from 'app/scene';
@@ -23,7 +23,9 @@ const App = () => {
         <Canvas
           className={styles.canvas}
           gl2
+          shadowMap
         >
+          <Stats className={styles.stats} />
           <Provider store={store}>
             <OrbitControls
               target={sceneParams.camera.target}
