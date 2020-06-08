@@ -2,11 +2,9 @@
 
 #pragma glslify: perlinNoise = require(../noise/perlin-noise.glsl)
 
-out vec2 fragUV;
-out vec3 fragPos;
-
-uniform vec2 colorMapOffset;
-uniform vec2 colorMapScale;
+#define USE_UV
+#include <fog_pars_vertex>
+#include <uv_pars_vertex>
 
 uniform float terrainHeight;
 uniform float terrainSpacing;
@@ -15,8 +13,9 @@ void main() {
   vec4 worldPos = modelMatrix * vec4(position, 1.0);
   worldPos.y += terrainHeight * perlinNoise(worldPos.xz * terrainSpacing);
 
-  fragUV = (uv + colorMapOffset) * colorMapScale;
-  fragPos = worldPos.xyz;
+  vec4 mvPosition = viewMatrix * worldPos;
+  #include <fog_vertex>
+  #include <uv_vertex>
 
-  gl_Position = projectionMatrix * viewMatrix * worldPos;
+  gl_Position = projectionMatrix * mvPosition;
 }

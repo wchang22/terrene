@@ -21,16 +21,18 @@ class TerrainShaderMaterial extends THREE.ShaderMaterial {
     const colorMap = textureLoader.load(terrain.colorMap);
     colorMap.wrapS = THREE.RepeatWrapping;
     colorMap.wrapT = THREE.RepeatWrapping;
+    colorMap.repeat = new THREE.Vector2(...terrain.colorMapScale);
+    colorMap.offset = new THREE.Vector2();
+    colorMap.updateMatrix();
 
     Object.assign(this.uniforms,
       THREE.UniformsLib.fog,
       {
-        colorMap: { type: 't', value: colorMap },
-        colorMapOffset: { type: 'v2', value: [0, 0] },
-        colorMapScale: { type: 'v2', value: terrain.colorMapScale },
+        colorMap: { value: colorMap },
+        uvTransform: { value: colorMap.matrix },
 
-        terrainHeight: { type: 'f', value: uniforms.height },
-        terrainSpacing: { type: 'f', value: uniforms.spacing },
+        terrainHeight: { value: uniforms.height },
+        terrainSpacing: { value: uniforms.spacing },
       });
   }
 }
