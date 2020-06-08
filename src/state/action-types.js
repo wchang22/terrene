@@ -5,7 +5,12 @@
  * Convention: ActionGroup_UNIQUE_LABEL
  */
 
-// eslint-disable-next-line import/prefer-default-export
 export const TerrainAction = Object.freeze({
   OPTIONS: 'TerrainAction_OPTIONS',
+  RESET_OPTIONS: 'TerrainAction_RESET_OPTIONS',
+});
+
+export const FogAction = Object.freeze({
+  OPTIONS: 'FogAction_OPTIONS',
+  RESET_OPTIONS: 'FogAction_RESET_OPTIONS',
 });

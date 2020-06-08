@@ -7,6 +7,7 @@ import {
 import { createLogger } from 'redux-logger';
 
 import terrain from 'state/terrain/reducers';
+import fog from 'state/fog/reducers';
 
 const middlewares = [];
 
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 const store = compose(applyMiddleware(...middlewares))(createStore)(
   combineReducers({
     terrain,
+    fog,
   }),
 );
 

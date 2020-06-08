@@ -1,10 +1,15 @@
 import React, { memo } from 'react';
+import { useSelector } from 'react-redux';
 
 import sceneParams from 'app/scene/params';
 import Terrain from 'app/scene/terrain';
+import { getFogOptions } from 'state/fog/selectors';
 
 const Scene = () => {
-  const { fog, lights: { hemisphere, directional } } = sceneParams;
+  const { hemisphere, directional } = sceneParams.lights;
+
+  const fogOptions = useSelector(getFogOptions);
+
   return (
     <>
       <hemisphereLight
@@ -22,7 +27,7 @@ const Scene = () => {
       }
       <fogExp2
         attach="fog"
-        args={[fog.color, fog.density]}
+        args={[fogOptions.color, fogOptions.density]}
       />
       <Terrain />
     </>

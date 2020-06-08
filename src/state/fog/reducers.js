@@ -1,26 +1,26 @@
 import update from 'immutability-helper';
 
-import { TerrainAction } from 'state/action-types';
+import { FogAction } from 'state/action-types';
 import sceneParams from 'app/scene/params';
-import TerrainOptions from 'app/side-drawer/terrain-list-section/options';
+import FogOptions from 'app/side-drawer/fog-list-section/options';
 
 const initialState = {
   options: {},
 };
 
-TerrainOptions.forEach(({ name }) => {
-  initialState.options[name] = sceneParams.terrain.uniforms[name];
+FogOptions.forEach(({ name }) => {
+  initialState.options[name] = sceneParams.fog[name];
 });
 
 const terrain = (state = initialState, action) => {
   switch (action.type) {
-    case TerrainAction.OPTIONS:
+    case FogAction.OPTIONS:
       return update(state, {
         options: {
           [action.name]: { $set: action.value },
         },
       });
-    case TerrainAction.RESET_OPTIONS:
+    case FogAction.RESET_OPTIONS:
       return {
         ...state,
         options: initialState.options,
