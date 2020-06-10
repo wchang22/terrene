@@ -14,3 +14,8 @@ export const FogAction = Object.freeze({
   OPTIONS: 'FogAction_OPTIONS',
   RESET_OPTIONS: 'FogAction_RESET_OPTIONS',
 });
+
+export const WaterAction = Object.freeze({
+  OPTIONS: 'WaterAction_OPTIONS',
+  RESET_OPTIONS: 'WaterAction_RESET_OPTIONS',
+});

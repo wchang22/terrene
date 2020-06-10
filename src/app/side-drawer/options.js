@@ -38,3 +38,13 @@ export const TerrainOptions = [
     step: 0.05,
   },
 ];
+
+export const WaterOptions = [
+  {
+    displayName: 'Height',
+    name: 'height',
+    min: -5,
+    max: 5,
+    step: 0.1,
+  },
+];

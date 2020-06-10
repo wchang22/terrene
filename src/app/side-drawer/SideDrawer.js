@@ -11,9 +11,11 @@ import {
 import ListSection from 'app/side-drawer/list-section';
 import { resetFogOptions, setFogOptions } from 'state/fog/actions';
 import { resetTerrainOptions, setTerrainOptions } from 'state/terrain/actions';
+import { resetWaterOptions, setWaterOptions } from 'state/water/actions';
 import { getFogOptions } from 'state/fog/selectors';
 import { getTerrainOptions } from 'state/terrain/selectors';
-import { FogOptions, TerrainOptions } from 'app/side-drawer/options';
+import { getWaterOptions } from 'state/water/selectors';
+import { FogOptions, TerrainOptions, WaterOptions } from 'app/side-drawer/options';
 
 import useStyles from './styles';
 
@@ -25,10 +27,12 @@ const SideDrawer = () => {
   const resetAll = () => {
     dispatch(resetFogOptions());
     dispatch(resetTerrainOptions());
+    dispatch(resetWaterOptions());
   };
 
   const terrainOptions = useSelector(getTerrainOptions);
   const fogOptions = useSelector(getFogOptions);
+  const waterOptions = useSelector(getWaterOptions);
 
   const fogSetOptions = useCallback((name, value) => dispatch(
     setFogOptions(name, value),
@@ -36,6 +40,10 @@ const SideDrawer = () => {
 
   const terrainSetOptions = useCallback((name, value) => dispatch(
     setTerrainOptions(name, value),
+  ), [dispatch]);
+
+  const waterSetOptions = useCallback((name, value) => dispatch(
+    setWaterOptions(name, value),
   ), [dispatch]);
 
   return (
@@ -59,6 +67,12 @@ const SideDrawer = () => {
             optionsEnum={TerrainOptions}
             options={terrainOptions}
             setOptions={terrainSetOptions}
+          />
+          <ListSection
+            sectionName="Water"
+            optionsEnum={WaterOptions}
+            options={waterOptions}
+            setOptions={waterSetOptions}
           />
         </Box>
         <ListItem

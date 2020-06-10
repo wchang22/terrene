@@ -1,26 +1,26 @@
 import update from 'immutability-helper';
 
-import { FogAction } from 'state/action-types';
+import { WaterAction } from 'state/action-types';
 import sceneParams from 'app/scene/params';
-import { FogOptions } from 'app/side-drawer/options';
+import { WaterOptions } from 'app/side-drawer/options';
 
 const initialState = {
   options: {},
 };
 
-FogOptions.forEach(({ name }) => {
-  initialState.options[name] = sceneParams.fog[name];
+WaterOptions.forEach(({ name }) => {
+  initialState.options[name] = sceneParams.water.uniforms[name];
 });
 
-const fog = (state = initialState, action) => {
+const water = (state = initialState, action) => {
   switch (action.type) {
-    case FogAction.OPTIONS:
+    case WaterAction.OPTIONS:
       return update(state, {
         options: {
           [action.name]: { $set: action.value },
         },
       });
-    case FogAction.RESET_OPTIONS:
+    case WaterAction.RESET_OPTIONS:
       return {
         ...state,
         options: initialState.options,
@@ -30,4 +30,4 @@ const fog = (state = initialState, action) => {
   }
 };
 
-export default fog;
+export default water;
