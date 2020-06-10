@@ -2,7 +2,7 @@ import update from 'immutability-helper';
 
 import { TerrainAction } from 'state/action-types';
 import sceneParams from 'app/scene/params';
-import TerrainOptions from 'app/side-drawer/terrain-list-section/options';
+import { TerrainOptions } from 'app/side-drawer/options';
 
 const initialState = {
   options: {},

@@ -1,4 +1,14 @@
-const TerrainOptions = [
+export const FogOptions = [
+  {
+    displayName: 'Density',
+    name: 'density',
+    min: 0,
+    max: 0.5,
+    step: 0.001,
+  },
+];
+
+export const TerrainOptions = [
   {
     displayName: 'Height Major',
     name: 'heightMajor',
@@ -28,5 +38,3 @@ const TerrainOptions = [
     step: 0.05,
   },
 ];
-
-export default TerrainOptions;

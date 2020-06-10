@@ -2,7 +2,7 @@ import update from 'immutability-helper';
 
 import { FogAction } from 'state/action-types';
 import sceneParams from 'app/scene/params';
-import FogOptions from 'app/side-drawer/fog-list-section/options';
+import { FogOptions } from 'app/side-drawer/options';
 
 const initialState = {
   options: {},
