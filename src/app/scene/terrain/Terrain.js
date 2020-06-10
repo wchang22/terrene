@@ -18,11 +18,17 @@ const Terrain = () => {
   useEffect(() => {
     const { uniforms } = terrainShaderMaterial;
     Object.assign(uniforms, update(uniforms, {
-      terrainHeight: {
-        value: { $set: terrainOptions.height },
+      terrainHeightMajor: {
+        value: { $set: terrainOptions.heightMajor },
       },
-      terrainSpacing: {
-        value: { $set: terrainOptions.spacing },
+      terrainSpacingMajor: {
+        value: { $set: terrainOptions.spacingMajor },
+      },
+      terrainHeightMinor: {
+        value: { $set: terrainOptions.heightMinor },
+      },
+      terrainSpacingMinor: {
+        value: { $set: terrainOptions.spacingMinor },
       },
     }));
   }, [terrainShaderMaterial, terrainOptions]);

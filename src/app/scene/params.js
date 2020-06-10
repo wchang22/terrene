@@ -1,3 +1,5 @@
+const terrainMap = (type) => `/assets/aerial_grass_rock/aerial_grass_rock_${type}_2k.jpg`;
+
 const params = Object.freeze({
   camera: {
     target: [0, 0, 0],
@@ -8,8 +10,8 @@ const params = Object.freeze({
   lights: {
     directional: [
       {
-        direction: [1, 1, 1],
-        intensity: 0.4,
+        direction: [0, 1, 0],
+        intensity: 0.75,
       },
     ],
     hemisphere: {
@@ -26,12 +28,17 @@ const params = Object.freeze({
     size: 30,
     divisions: 250,
     position: [0, 0, 0],
-    colorMap: '/assets/aerial_grass_rock/aerial_grass_rock_diff_2k.jpg',
+    colorMap: terrainMap('diff'),
     colorMapScale: [10, 10],
-    normalMap: '/assets/aerial_grass_rock/aerial_grass_rock_nor_2k.jpg',
+    normalMap: terrainMap('nor'),
+    displacementMap: terrainMap('disp'),
+    roughnessMap: terrainMap('rough'),
+    metalness: 0.5,
     uniforms: {
-      height: 3.0,
-      spacing: 0.25,
+      heightMajor: 3.0,
+      spacingMajor: 0.25,
+      heightMinor: 0.3,
+      spacingMinor: 1.25,
     },
   },
 });
