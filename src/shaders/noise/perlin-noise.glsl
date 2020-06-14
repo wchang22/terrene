@@ -2,6 +2,9 @@
 //	by Stefan Gustavson
 //  https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
 
+// Make sure perlin noise is the first function, so we can use it GPU.js
+float perlinNoise(vec2 P);
+
 vec4 permute(vec4 x) {
   return mod((x * 34.0 + 1.0) * x, 289.0);
 }
@@ -10,7 +13,7 @@ vec2 fade(vec2 t) {
   return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
 }
 
-float perlinNoise(vec2 P){
+float perlinNoise(vec2 P) {
   vec4 Pi = floor(P.xyxy) + vec4(0.0, 0.0, 1.0, 1.0);
   vec4 Pf = fract(P.xyxy) - vec4(0.0, 0.0, 1.0, 1.0);
   Pi = mod(Pi, 289.0); // To avoid truncation effects in permutation

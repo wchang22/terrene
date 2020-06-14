@@ -11,6 +11,7 @@
     "@welldone-software/why-did-you-render": "^4.2.5",
     "drei": "0.0.55",
     "glslify-loader": "^2.0.0",
+    "gpu.js": "^2.9.4",
     "immutability-helper": "^3.1.1",
     "js-logger": "^1.6.0",
     "prop-types": "^15.7.2",

@@ -2,20 +2,13 @@ import * as THREE from 'three';
 
 import sceneParams from 'app/scene/params';
 
-import terrainVS from 'shaders/terrain/terrain.vs.glsl';
-import terrainFS from 'shaders/terrain/terrain.fs.glsl';
-
-class TerrainShaderMaterial extends THREE.ShaderMaterial {
+class TerrainShaderMaterial extends THREE.MeshStandardMaterial {
   constructor() {
     super({
-      vertexShader: terrainVS,
-      fragmentShader: terrainFS,
       side: THREE.DoubleSide,
-      fog: true,
-      lights: true,
     });
 
-    const { terrain, terrain: { uniforms } } = sceneParams;
+    const { terrain } = sceneParams;
 
     const textureLoader = new THREE.TextureLoader();
 
@@ -42,22 +35,7 @@ class TerrainShaderMaterial extends THREE.ShaderMaterial {
     this.normalMapType = THREE.TangentSpaceNormalMap;
     this.displacementMap = displacementMap;
     this.roughnessMap = roughnessMap;
-
-    Object.assign(this.uniforms,
-      THREE.ShaderLib.standard.uniforms,
-      {
-        map: { value: colorMap },
-        normalMap: { value: normalMap },
-        displacementMap: { value: displacementMap },
-        uvTransform: { value: colorMap.matrix },
-        roughnessMap: { value: roughnessMap },
-        metalness: { value: terrain.metalness },
-
-        terrainHeightMajor: { value: uniforms.heightMajor },
-        terrainSpacingMajor: { value: uniforms.spacingMajor },
-        terrainHeightMinor: { value: uniforms.heightMinor },
-        terrainSpacingMinor: { value: uniforms.spacingMinor },
-      });
+    this.metalness = terrain.metalness;
   }
 }
 
