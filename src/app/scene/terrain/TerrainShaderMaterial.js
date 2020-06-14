@@ -3,8 +3,9 @@ import * as THREE from 'three';
 import sceneParams from 'app/scene/params';
 
 class TerrainShaderMaterial extends THREE.MeshStandardMaterial {
-  constructor() {
+  constructor(props) {
     super({
+      ...props,
       side: THREE.DoubleSide,
     });
 

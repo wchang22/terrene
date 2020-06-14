@@ -47,6 +47,7 @@ const params = Object.freeze({
       height: -0.3,
     },
   },
+  epsilon: 1e-7,
 });
 
 export default params;

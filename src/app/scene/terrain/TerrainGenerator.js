@@ -7,10 +7,11 @@ class TerrainGenerator {
     this.gpu = new GPU();
 
     this.elevationKernel = this.gpu.createKernel(`function (
-      vertices, heightMajor, spacingMajor, heightMinor, spacingMinor,
+      vertices, position, heightMajor, spacingMajor, heightMinor, spacingMinor,
     ) {
       const vertex = vertices[this.thread.x];
-      const [x, z] = vertex;
+      const x = vertex[0] + position[0];
+      const z = vertex[1] + position[1];
 
       let elevation = 0.0;
       /* eslint-disable no-undef */
@@ -22,6 +23,7 @@ class TerrainGenerator {
       .setDynamicOutput(true)
       .setArgumentTypes({
         vertices: 'Array1D(2)',
+        position: 'Array(2)',
         heightMajor: 'Float',
         spacingMajor: 'Float',
         heightMinor: 'Float',
@@ -31,11 +33,11 @@ class TerrainGenerator {
   }
 
   generateElevation(
-    vertices, numVertices, heightMajor, spacingMajor, heightMinor, spacingMinor,
+    vertices, numVertices, position, heightMajor, spacingMajor, heightMinor, spacingMinor,
   ) {
     this.elevationKernel.setOutput([numVertices]);
     return this.elevationKernel(
-      vertices, heightMajor, spacingMajor, heightMinor, spacingMinor,
+      vertices, position, heightMajor, spacingMajor, heightMinor, spacingMinor,
     );
   }
 }
