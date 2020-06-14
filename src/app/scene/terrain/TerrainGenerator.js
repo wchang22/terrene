@@ -6,7 +6,7 @@ class TerrainGenerator {
   constructor() {
     this.gpu = new GPU();
 
-    this.elevationKernel = this.gpu.createKernel(function kernel(
+    this.elevationKernel = this.gpu.createKernel(`function (
       vertices, heightMajor, spacingMajor, heightMinor, spacingMinor,
     ) {
       const vertex = vertices[this.thread.x];
@@ -18,7 +18,7 @@ class TerrainGenerator {
       elevation += heightMinor * perlinNoise([x * spacingMinor, z * spacingMinor]);
       /* eslint-enable no-undef */
       return elevation;
-    })
+    }`)
       .setDynamicOutput(true)
       .setArgumentTypes({
         vertices: 'Array1D(2)',
