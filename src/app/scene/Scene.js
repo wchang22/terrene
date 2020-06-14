@@ -22,7 +22,6 @@ const Scene = () => {
             direction={direction}
             intensity={intensity}
             key={`${direction}-${intensity}`}
-            castShadow
           />
         ))
       }

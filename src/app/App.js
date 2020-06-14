@@ -23,7 +23,6 @@ const App = () => {
         <Canvas
           className={styles.canvas}
           gl2
-          shadowMap
         >
           <Stats className={styles.stats} />
           <Provider store={store}>
