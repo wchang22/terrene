@@ -5,14 +5,12 @@ import React, {
   memo,
 } from 'react';
 import { useSelector } from 'react-redux';
-import * as THREE from 'three';
 import { useThree } from 'react-three-fiber';
 
 import sceneParams from 'app/scene/params';
 import TerrainGenerator from 'app/scene/terrain/TerrainGenerator';
 import TerrainShaderMaterial from 'app/scene/terrain/TerrainShaderMaterial';
 import { getTerrainOptions } from 'state/terrain/selectors';
-import { getWaterOptions } from 'state/water/selectors';
 
 const Terrain = () => {
   const plane = useRef();
@@ -47,35 +45,18 @@ const Terrain = () => {
     geometry.verticesNeedUpdate = true;
   }, [gl, terrainGenerator, terrainOptions]);
 
-  const waterOptions = useSelector(getWaterOptions);
-
   return (
-    <group rotation={terrain.rotation}>
-      <mesh
-        ref={plane}
-        position={terrain.position}
-        material={terrainShaderMaterial}
-      >
-        <planeGeometry
-          attach="geometry"
-          args={[terrain.size, terrain.size, terrain.divisions, terrain.divisions]}
-        />
-      </mesh>
-      <mesh position={[0, 0, waterOptions.height]}>
-        <planeGeometry
-          attach="geometry"
-          args={[terrain.size, terrain.size, terrain.divisions, terrain.divisions]}
-        />
-        <meshPhysicalMaterial
-          attach="material"
-          color="lightblue"
-          side={THREE.DoubleSide}
-          transparent
-          transparency={0.5}
-          metalness={0}
-        />
-      </mesh>
-    </group>
+    <mesh
+      ref={plane}
+      position={terrain.position}
+      material={terrainShaderMaterial}
+      rotation={terrain.rotation}
+    >
+      <planeGeometry
+        attach="geometry"
+        args={[terrain.size, terrain.size, terrain.divisions, terrain.divisions]}
+      />
+    </mesh>
   );
 };
 

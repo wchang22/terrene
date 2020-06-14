@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import sceneParams from 'app/scene/params';
 import Terrain from 'app/scene/terrain';
+import Water from 'app/scene/water';
 import { getFogOptions } from 'state/fog/selectors';
 
 const Scene = () => {
@@ -30,6 +31,7 @@ const Scene = () => {
         args={[fogOptions.color, fogOptions.density]}
       />
       <Terrain />
+      <Water />
     </>
   );
 };
