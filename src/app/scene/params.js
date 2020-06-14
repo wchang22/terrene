@@ -25,8 +25,8 @@ const params = Object.freeze({
     density: 0.05,
   },
   terrain: {
-    size: 30,
-    divisions: 250,
+    size: 25,
+    divisions: 80,
     position: [0, 0, 0],
     rotation: [-Math.PI / 2, 0, 0],
     colorMap: terrainMap('diff'),
@@ -47,6 +47,7 @@ const params = Object.freeze({
       height: -0.3,
     },
   },
+  tileSideLength: 3,
   epsilon: 1e-7,
 });
 

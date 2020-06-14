@@ -16,9 +16,8 @@ import { getTerrainOptions } from 'state/terrain/selectors';
 
 extend({ TerrainShaderMaterial });
 
-const tiles = [...new Array(4).keys()];
-
-const Terrain = ({ tileOffsets }) => {
+const Terrain = ({ tileOffsets, numTiles }) => {
+  const tiles = useMemo(() => [...new Array(numTiles).keys()], [numTiles]);
   const planes = useRef(tiles.map(() => createRef()));
   const { gl } = useThree();
   const { terrain } = sceneParams;
@@ -75,6 +74,7 @@ const Terrain = ({ tileOffsets }) => {
 
 Terrain.propTypes = {
   tileOffsets: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  numTiles: PropTypes.number.isRequired,
 };
 
 export default memo(Terrain);

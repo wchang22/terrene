@@ -1,4 +1,5 @@
 import React, {
+  useMemo,
   useEffect,
   useRef,
   createRef,
@@ -11,9 +12,8 @@ import PropTypes from 'prop-types';
 import sceneParams from 'app/scene/params';
 import { getWaterOptions } from 'state/water/selectors';
 
-const tiles = [...new Array(4).keys()];
-
-const Water = ({ tileOffsets }) => {
+const Water = ({ tileOffsets, numTiles }) => {
+  const tiles = useMemo(() => [...new Array(numTiles).keys()], [numTiles]);
   const planes = useRef(tiles.map(() => createRef()));
   const { terrain } = sceneParams;
 
@@ -36,7 +36,7 @@ const Water = ({ tileOffsets }) => {
           >
             <planeGeometry
               attach="geometry"
-              args={[terrain.size, terrain.size, terrain.divisions, terrain.divisions]}
+              args={[terrain.size, terrain.size, 1, 1]}
             />
             <meshPhysicalMaterial
               attach="material"
@@ -55,6 +55,7 @@ const Water = ({ tileOffsets }) => {
 
 Water.propTypes = {
   tileOffsets: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  numTiles: PropTypes.number.isRequired,
 };
 
 export default memo(Water);
