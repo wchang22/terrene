@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/terrene/precache-manifest.da3f1e4be55c2bd06f739d202aeb0050.js"
+  "/terrene/precache-manifest.727eda9023be6336acaf68dc83af83bc.js"
 );
 
 self.addEventListener('message', (event) => {
