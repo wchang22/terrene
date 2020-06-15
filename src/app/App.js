@@ -3,7 +3,8 @@ import { Box } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import { Canvas } from 'react-three-fiber';
-import { PerspectiveCamera, OrbitControls, Stats } from 'drei';
+import { PerspectiveCamera, Stats } from 'drei';
+import PointerLockControls from 'app/pointer-lock-controls';
 
 import SideDrawer from 'app/side-drawer';
 import Scene from 'app/scene';
@@ -26,10 +27,8 @@ const App = () => {
         >
           <Stats className={styles.stats} />
           <Provider store={store}>
-            <OrbitControls
-              target={sceneParams.camera.target}
-              dampingFactor={sceneParams.camera.dampingFactor}
-              zoomSpeed={sceneParams.camera.zoomSpeed}
+            <PointerLockControls
+              movementSpeed={sceneParams.camera.movementSpeed}
             />
             <PerspectiveCamera
               position={sceneParams.camera.position}

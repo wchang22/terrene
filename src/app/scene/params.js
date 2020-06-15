@@ -2,10 +2,8 @@ const terrainMap = (type) => `/assets/aerial_grass_rock/aerial_grass_rock_${type
 
 const params = Object.freeze({
   camera: {
-    target: [0, 0, 0],
     position: [0, 1, 2.5],
-    zoomSpeed: 2.0,
-    dampingFactor: 0.1,
+    movementSpeed: 5,
   },
   lights: {
     directional: [
