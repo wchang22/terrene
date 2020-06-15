@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/terrene/static/css/main.67e335d2.chunk.css",
-    "main.js": "/terrene/static/js/main.355e2dc9.chunk.js",
-    "main.js.map": "/terrene/static/js/main.355e2dc9.chunk.js.map",
-    "runtime-main.js": "/terrene/static/js/runtime-main.df4d5e20.js",
-    "runtime-main.js.map": "/terrene/static/js/runtime-main.df4d5e20.js.map",
-    "static/js/2.4330a59e.chunk.js": "/terrene/static/js/2.4330a59e.chunk.js",
-    "static/js/2.4330a59e.chunk.js.map": "/terrene/static/js/2.4330a59e.chunk.js.map",
-    "index.html": "/terrene/index.html",
-    "precache-manifest.727eda9023be6336acaf68dc83af83bc.js": "/terrene/precache-manifest.727eda9023be6336acaf68dc83af83bc.js",
-    "service-worker.js": "/terrene/service-worker.js",
-    "static/css/main.67e335d2.chunk.css.map": "/terrene/static/css/main.67e335d2.chunk.css.map",
-    "static/js/2.4330a59e.chunk.js.LICENSE.txt": "/terrene/static/js/2.4330a59e.chunk.js.LICENSE.txt"
+    "main.css": "http://wchang22.github.io/terrene/static/css/main.67e335d2.chunk.css",
+    "main.js": "http://wchang22.github.io/terrene/static/js/main.e154d784.chunk.js",
+    "main.js.map": "http://wchang22.github.io/terrene/static/js/main.e154d784.chunk.js.map",
+    "runtime-main.js": "http://wchang22.github.io/terrene/static/js/runtime-main.cee72d2f.js",
+    "runtime-main.js.map": "http://wchang22.github.io/terrene/static/js/runtime-main.cee72d2f.js.map",
+    "static/js/2.4330a59e.chunk.js": "http://wchang22.github.io/terrene/static/js/2.4330a59e.chunk.js",
+    "static/js/2.4330a59e.chunk.js.map": "http://wchang22.github.io/terrene/static/js/2.4330a59e.chunk.js.map",
+    "index.html": "http://wchang22.github.io/terrene/index.html",
+    "precache-manifest.57b6887b08d22dabfca42176f7a86a2b.js": "http://wchang22.github.io/terrene/precache-manifest.57b6887b08d22dabfca42176f7a86a2b.js",
+    "service-worker.js": "http://wchang22.github.io/terrene/service-worker.js",
+    "static/css/main.67e335d2.chunk.css.map": "http://wchang22.github.io/terrene/static/css/main.67e335d2.chunk.css.map",
+    "static/js/2.4330a59e.chunk.js.LICENSE.txt": "http://wchang22.github.io/terrene/static/js/2.4330a59e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.df4d5e20.js",
+    "static/js/runtime-main.cee72d2f.js",
     "static/js/2.4330a59e.chunk.js",
     "static/css/main.67e335d2.chunk.css",
-    "static/js/main.355e2dc9.chunk.js"
+    "static/js/main.e154d784.chunk.js"
   ]
 }
