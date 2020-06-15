@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://wchang22.github.io/terrene/precache-manifest.e1a3c3709fc3a43feeecadab8d229dbc.js"
+  "https://wchang22.github.io/terrene/precache-manifest.bdeb4c8652b2677c26b04f8c5450fe0d.js"
 );
 
 self.addEventListener('message', (event) => {
