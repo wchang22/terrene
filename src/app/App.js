@@ -7,6 +7,7 @@ import { PerspectiveCamera, Stats } from 'drei';
 import PointerLockControls from 'app/pointer-lock-controls';
 
 import SideDrawer from 'app/side-drawer';
+import Instructions from 'app/instructions';
 import Scene from 'app/scene';
 import sceneParams from 'app/scene/params';
 import store from 'state/store';
@@ -21,6 +22,7 @@ const App = () => {
     <Box className={styles.app}>
       <ThemeProvider theme={theme}>
         <SideDrawer />
+        <Instructions />
         <Canvas
           className={styles.canvas}
           gl2

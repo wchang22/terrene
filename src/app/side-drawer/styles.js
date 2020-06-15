@@ -1,8 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+export const SIDE_DRAWER_WIDTH = '20%';
+
 const useStyles = makeStyles((theme) => ({
   sideDrawer: {
-    width: '20%',
+    width: SIDE_DRAWER_WIDTH,
     overflowX: 'hidden',
   },
   list: {
