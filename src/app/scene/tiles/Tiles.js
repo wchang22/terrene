@@ -24,7 +24,7 @@ class Tiles {
 
     for (let i = -this.sideLength / 2; i < this.sideLength / 2; i += 1) {
       for (let j = -this.sideLength / 2; j < this.sideLength / 2; j += 1) {
-        newTiles.push([tileX + j * this.tileSize, tileY + i * this.tileSize]);
+        newTiles.push([tileX + (j + 0.5) * this.tileSize, tileY + (i + 0.5) * this.tileSize]);
       }
     }
 
