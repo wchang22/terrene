@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.67e335d2.chunk.css",
-    "main.js": "./static/js/main.bc621fe7.chunk.js",
-    "main.js.map": "./static/js/main.bc621fe7.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.361fa88f.js",
-    "runtime-main.js.map": "./static/js/runtime-main.361fa88f.js.map",
-    "static/js/2.4330a59e.chunk.js": "./static/js/2.4330a59e.chunk.js",
-    "static/js/2.4330a59e.chunk.js.map": "./static/js/2.4330a59e.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.561456b84014c39f49501e779b86ec57.js": "./precache-manifest.561456b84014c39f49501e779b86ec57.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.67e335d2.chunk.css.map": "./static/css/main.67e335d2.chunk.css.map",
-    "static/js/2.4330a59e.chunk.js.LICENSE.txt": "./static/js/2.4330a59e.chunk.js.LICENSE.txt"
+    "main.css": "/terrene/static/css/main.67e335d2.chunk.css",
+    "main.js": "/terrene/static/js/main.bc621fe7.chunk.js",
+    "main.js.map": "/terrene/static/js/main.bc621fe7.chunk.js.map",
+    "runtime-main.js": "/terrene/static/js/runtime-main.df4d5e20.js",
+    "runtime-main.js.map": "/terrene/static/js/runtime-main.df4d5e20.js.map",
+    "static/js/2.4330a59e.chunk.js": "/terrene/static/js/2.4330a59e.chunk.js",
+    "static/js/2.4330a59e.chunk.js.map": "/terrene/static/js/2.4330a59e.chunk.js.map",
+    "index.html": "/terrene/index.html",
+    "precache-manifest.da3f1e4be55c2bd06f739d202aeb0050.js": "/terrene/precache-manifest.da3f1e4be55c2bd06f739d202aeb0050.js",
+    "service-worker.js": "/terrene/service-worker.js",
+    "static/css/main.67e335d2.chunk.css.map": "/terrene/static/css/main.67e335d2.chunk.css.map",
+    "static/js/2.4330a59e.chunk.js.LICENSE.txt": "/terrene/static/js/2.4330a59e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.361fa88f.js",
+    "static/js/runtime-main.df4d5e20.js",
     "static/js/2.4330a59e.chunk.js",
     "static/css/main.67e335d2.chunk.css",
     "static/js/main.bc621fe7.chunk.js"
