@@ -1,4 +1,6 @@
-const terrainMap = (type) => `/assets/aerial_grass_rock/aerial_grass_rock_${type}_2k.jpg`;
+const terrainMap = (type) => (
+  `${process.env.PUBLIC_URL}/assets/aerial_grass_rock/aerial_grass_rock_${type}_2k.jpg`
+);
 
 const params = Object.freeze({
   camera: {
