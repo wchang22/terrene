@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "https://wesleychang.tech/terrene/static/css/main.67e335d2.chunk.css",
-    "main.js": "https://wesleychang.tech/terrene/static/js/main.4b7c4825.chunk.js",
-    "main.js.map": "https://wesleychang.tech/terrene/static/js/main.4b7c4825.chunk.js.map",
-    "runtime-main.js": "https://wesleychang.tech/terrene/static/js/runtime-main.3384f739.js",
-    "runtime-main.js.map": "https://wesleychang.tech/terrene/static/js/runtime-main.3384f739.js.map",
-    "static/js/2.4330a59e.chunk.js": "https://wesleychang.tech/terrene/static/js/2.4330a59e.chunk.js",
-    "static/js/2.4330a59e.chunk.js.map": "https://wesleychang.tech/terrene/static/js/2.4330a59e.chunk.js.map",
-    "index.html": "https://wesleychang.tech/terrene/index.html",
-    "precache-manifest.214c1c50daa96789dc1f014bdc6cc316.js": "https://wesleychang.tech/terrene/precache-manifest.214c1c50daa96789dc1f014bdc6cc316.js",
-    "service-worker.js": "https://wesleychang.tech/terrene/service-worker.js",
-    "static/css/main.67e335d2.chunk.css.map": "https://wesleychang.tech/terrene/static/css/main.67e335d2.chunk.css.map",
-    "static/js/2.4330a59e.chunk.js.LICENSE.txt": "https://wesleychang.tech/terrene/static/js/2.4330a59e.chunk.js.LICENSE.txt"
+    "main.css": "/terrene/static/css/main.67e335d2.chunk.css",
+    "main.js": "/terrene/static/js/main.6760dbdf.chunk.js",
+    "main.js.map": "/terrene/static/js/main.6760dbdf.chunk.js.map",
+    "runtime-main.js": "/terrene/static/js/runtime-main.df4d5e20.js",
+    "runtime-main.js.map": "/terrene/static/js/runtime-main.df4d5e20.js.map",
+    "static/js/2.4330a59e.chunk.js": "/terrene/static/js/2.4330a59e.chunk.js",
+    "static/js/2.4330a59e.chunk.js.map": "/terrene/static/js/2.4330a59e.chunk.js.map",
+    "index.html": "/terrene/index.html",
+    "precache-manifest.e5937adf93ca9ca4f4a80939d181e90b.js": "/terrene/precache-manifest.e5937adf93ca9ca4f4a80939d181e90b.js",
+    "service-worker.js": "/terrene/service-worker.js",
+    "static/css/main.67e335d2.chunk.css.map": "/terrene/static/css/main.67e335d2.chunk.css.map",
+    "static/js/2.4330a59e.chunk.js.LICENSE.txt": "/terrene/static/js/2.4330a59e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3384f739.js",
+    "static/js/runtime-main.df4d5e20.js",
     "static/js/2.4330a59e.chunk.js",
     "static/css/main.67e335d2.chunk.css",
-    "static/js/main.4b7c4825.chunk.js"
+    "static/js/main.6760dbdf.chunk.js"
   ]
 }
