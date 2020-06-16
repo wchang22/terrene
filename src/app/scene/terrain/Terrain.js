@@ -6,15 +6,13 @@ import React, {
   memo,
 } from 'react';
 import { useSelector } from 'react-redux';
-import { useThree, extend } from 'react-three-fiber';
+import { useThree } from 'react-three-fiber';
 import PropTypes from 'prop-types';
 
 import sceneParams from 'app/scene/params';
 import TerrainGenerator from 'app/scene/terrain/TerrainGenerator';
 import TerrainShaderMaterial from 'app/scene/terrain/TerrainShaderMaterial';
 import { getTerrainOptions } from 'state/terrain/selectors';
-
-extend({ TerrainShaderMaterial });
 
 const Terrain = ({ tileOffsets, numTiles }) => {
   const tiles = useMemo(() => [...new Array(numTiles).keys()], [numTiles]);
@@ -23,6 +21,7 @@ const Terrain = ({ tileOffsets, numTiles }) => {
   const { terrain } = sceneParams;
 
   const terrainGenerator = useMemo(() => new TerrainGenerator(), []);
+  const terrainShaderMaterial = useMemo(() => new TerrainShaderMaterial(), []);
   const terrainOptions = useSelector(getTerrainOptions);
 
   useEffect(() => {
@@ -30,15 +29,21 @@ const Terrain = ({ tileOffsets, numTiles }) => {
     const maxTextureSize = context.getParameter(context.MAX_TEXTURE_SIZE);
 
     tileOffsets.forEach((offset, offsetIndex) => {
-      const { position, geometry, geometry: { vertices } } = planes.current[offsetIndex].current;
+      const { position, geometry: { attributes } } = planes.current[offsetIndex].current;
       position.set(...offset, 0);
 
-      const vertexBatchSize = Math.min(maxTextureSize, vertices.length);
+      const { array } = attributes.position;
+      const vertices = [];
+      // Create vertex array of x, y elements from flat position array
+      for (let i = 0; i < array.length; i += 3) {
+        vertices.push([array[i], array[i + 1]]);
+      }
 
+      const vertexBatchSize = Math.min(maxTextureSize, vertices.length);
       for (let i = 0; i < vertices.length; i += vertexBatchSize) {
         const vertexBatch = vertices.slice(i, i + vertexBatchSize);
         const terrainElevations = terrainGenerator.generateElevation(
-          vertexBatch.map((v) => [v.x, v.y]),
+          vertexBatch,
           vertexBatch.length,
           offset,
           terrainOptions.heightMajor,
@@ -46,9 +51,12 @@ const Terrain = ({ tileOffsets, numTiles }) => {
           terrainOptions.heightMinor,
           terrainOptions.spacingMinor,
         );
-        vertexBatch.forEach((vertex, index) => vertex.setZ(terrainElevations[index]));
+        // Set the z components in the position array
+        for (let j = 0; j < vertexBatch.length; j += 1) {
+          array[(j + i) * 3 + 2] = terrainElevations[j];
+        }
       }
-      geometry.verticesNeedUpdate = true;
+      attributes.position.needsUpdate = true;
     });
   }, [gl, terrainGenerator, terrainOptions, tileOffsets]);
 
@@ -59,12 +67,12 @@ const Terrain = ({ tileOffsets, numTiles }) => {
           <mesh
             ref={planes.current[index]}
             key={String(value)}
+            material={terrainShaderMaterial}
           >
-            <planeGeometry
+            <planeBufferGeometry
               attach="geometry"
               args={[terrain.size, terrain.size, terrain.divisions, terrain.divisions]}
             />
-            <terrainShaderMaterial attach="material" />
           </mesh>
         ))
       }

@@ -21,8 +21,7 @@ const Water = ({ tileOffsets, numTiles }) => {
 
   useEffect(() => {
     tileOffsets.forEach((offset, index) => {
-      const { position } = planes.current[index].current;
-      position.set(...offset, waterOptions.height);
+      planes.current[index].current.position.set(...offset, waterOptions.height);
     });
   }, [tileOffsets, waterOptions.height]);
 
@@ -34,7 +33,7 @@ const Water = ({ tileOffsets, numTiles }) => {
             ref={planes.current[index]}
             key={String(value)}
           >
-            <planeGeometry
+            <planeBufferGeometry
               attach="geometry"
               args={[terrain.size, terrain.size, 1, 1]}
             />
