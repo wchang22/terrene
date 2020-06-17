@@ -47,4 +47,11 @@ export const WaterOptions = [
     max: 5,
     step: 0.1,
   },
+  {
+    displayName: 'Speed',
+    name: 'speed',
+    min: 1,
+    max: 4,
+    step: 0.1,
+  },
 ];

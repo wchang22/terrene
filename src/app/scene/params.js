@@ -1,5 +1,10 @@
+import * as THREE from 'three';
+
 const terrainMap = (type) => (
   `${process.env.PUBLIC_URL}/assets/aerial_grass_rock/aerial_grass_rock_${type}_2k.jpg`
+);
+const waterMap = (type) => (
+  `${process.env.PUBLIC_URL}/assets/water/${type}.jpg`
 );
 
 const params = Object.freeze({
@@ -10,8 +15,16 @@ const params = Object.freeze({
   lights: {
     directional: [
       {
-        direction: [0, 1, 0],
-        intensity: 0.75,
+        direction: new THREE.Vector3(0.5, 1, -0.5).normalize(),
+        intensity: 0.4,
+      },
+      {
+        direction: new THREE.Vector3(0.5, 1, 0.5).normalize(),
+        intensity: 0.4,
+      },
+      {
+        direction: new THREE.Vector3(-0.5, 1, 0).normalize(),
+        intensity: 0.4,
       },
     ],
     hemisphere: {
@@ -43,8 +56,15 @@ const params = Object.freeze({
     },
   },
   water: {
+    normalMap: waterMap('nor'),
     uniforms: {
       height: -0.3,
+      speed: 2,
+      kAmbient: 0.1,
+      kDiffuse: 0.6,
+      kSpecular: 0.8,
+      shininess: 128.0,
+      baseColor: 'lightblue',
     },
   },
   tileSideLength: 3,

@@ -37,9 +37,9 @@ const Scene = () => {
       {
         directional.map(({ direction, intensity }) => (
           <directionalLight
-            direction={direction}
+            position={direction}
             intensity={intensity}
-            key={`${direction}-${intensity}`}
+            key={`${direction.toArray()}-${intensity}`}
           />
         ))
       }
