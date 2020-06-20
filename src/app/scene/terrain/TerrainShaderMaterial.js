@@ -23,10 +23,6 @@ class TerrainShaderMaterial extends THREE.MeshStandardMaterial {
     normalMap.wrapS = THREE.RepeatWrapping;
     normalMap.wrapT = THREE.RepeatWrapping;
 
-    const displacementMap = textureLoader.load(terrain.displacementMap);
-    displacementMap.wrapS = THREE.RepeatWrapping;
-    displacementMap.wrapT = THREE.RepeatWrapping;
-
     const roughnessMap = textureLoader.load(terrain.roughnessMap);
     roughnessMap.wrapS = THREE.RepeatWrapping;
     roughnessMap.wrapT = THREE.RepeatWrapping;
@@ -34,7 +30,6 @@ class TerrainShaderMaterial extends THREE.MeshStandardMaterial {
     this.map = colorMap;
     this.normalMap = normalMap;
     this.normalMapType = THREE.TangentSpaceNormalMap;
-    this.displacementMap = displacementMap;
     this.roughnessMap = roughnessMap;
     this.metalness = terrain.metalness;
   }

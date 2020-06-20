@@ -45,7 +45,6 @@ const params = Object.freeze({
     colorMap: terrainMap('diff'),
     colorMapScale: [10, 10],
     normalMap: terrainMap('nor'),
-    displacementMap: terrainMap('disp'),
     roughnessMap: terrainMap('rough'),
     metalness: 0.5,
     uniforms: {
