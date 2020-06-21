@@ -48,16 +48,16 @@ const params = Object.freeze({
     roughnessMap: terrainMap('rough'),
     metalness: 0.5,
     uniforms: {
-      heightMajor: 3.0,
-      spacingMajor: 0.25,
+      heightMajor: 4.0,
+      spacingMajor: 4.0,
       heightMinor: 0.3,
-      spacingMinor: 1.25,
+      spacingMinor: 0.8,
     },
   },
   water: {
     normalMap: waterMap('nor'),
     uniforms: {
-      height: -0.3,
+      height: 0,
       speed: 2,
       kAmbient: 0.1,
       kDiffuse: 0.6,

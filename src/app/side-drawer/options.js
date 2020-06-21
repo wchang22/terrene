@@ -3,7 +3,7 @@ export const FogOptions = [
     displayName: 'Density',
     name: 'density',
     min: 0,
-    max: 0.5,
+    max: 0.2,
     step: 0.001,
   },
 ];
@@ -19,9 +19,9 @@ export const TerrainOptions = [
   {
     displayName: 'Spacing Major',
     name: 'spacingMajor',
-    min: 0,
-    max: 1.0,
-    step: 0.01,
+    min: 1,
+    max: 10,
+    step: 0.1,
   },
   {
     displayName: 'Height Minor',
@@ -33,9 +33,9 @@ export const TerrainOptions = [
   {
     displayName: 'Spacing Minor',
     name: 'spacingMinor',
-    min: 0,
-    max: 5.0,
-    step: 0.05,
+    min: 0.1,
+    max: 2.0,
+    step: 0.01,
   },
 ];
 

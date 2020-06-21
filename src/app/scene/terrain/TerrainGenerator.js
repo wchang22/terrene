@@ -12,11 +12,13 @@ class TerrainGenerator {
       const vertex = vertices[this.thread.x];
       const x = vertex[0] + position[0];
       const z = vertex[1] + position[1];
+      const invSpacingMajor = 1.0 / spacingMajor;
+      const invSpacingMinor = 1.0 / spacingMinor;
 
       let elevation = 0.0;
       /* eslint-disable no-undef */
-      elevation += heightMajor * perlinNoise([x * spacingMajor, z * spacingMajor]);
-      elevation += heightMinor * perlinNoise([x * spacingMinor, z * spacingMinor]);
+      elevation += heightMajor * perlinNoise([x * invSpacingMajor, z * invSpacingMajor]);
+      elevation += heightMinor * perlinNoise([x * invSpacingMinor, z * invSpacingMinor]);
       /* eslint-enable no-undef */
       return elevation;
     }`)
