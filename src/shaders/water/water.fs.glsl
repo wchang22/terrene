@@ -22,6 +22,8 @@ uniform vec3 baseColor;
 #include <lights_pars_begin>
 #include <fog_pars_fragment>
 
+#pragma glslify: computeLighting = require('../lighting/directional-blinn-phong.glsl')
+
 vec4 getNoise(vec2 uv) {
   vec2 uvs[4];
   uvs[0] = uv / 103.0 + vec2(time / 17.0, time / 29.0);
@@ -36,30 +38,19 @@ vec4 getNoise(vec2 uv) {
   return 0.5 * noise - 1.0;
 }
 
-#if NUM_DIR_LIGHTS > 0
-vec3 sunlight(DirectionalLight sun, vec3 viewDir, vec3 normalDir, vec3 diffuseColor) {
-  // `sun.direction` is in view space
-  vec3 lightDir = normalize(invViewMatrix * sun.direction);
-  vec3 halfDir = normalize(lightDir + viewDir);
-
-  vec3 diffuse = kDiffuse * diffuseColor * max(dot(normalDir, lightDir), 0.0);
-  vec3 specular = vec3(kSpecular * pow(max(dot(normalDir, halfDir), 0.0), shininess));
-
-  return (diffuse + specular) * sun.color;
-}
-#endif
-
 void main() {
   vec4 noise = getNoise(worldPos.xz * 50.0);
   vec3 normalDir = normalize(noise.xzy * vec3(2.0, 1.0, 2.0));
   vec3 viewDir = normalize(cameraPosition - worldPos);
 
   vec3 color = kAmbient * baseColor;
-#if NUM_DIR_LIGHTS > 0
+
   for (int i = 0; i < NUM_DIR_LIGHTS; i++) {
-    color += sunlight(directionalLights[i], viewDir, normalDir, baseColor);
+    color += computeLighting(directionalLights[i], invViewMatrix,
+                             viewDir, normalDir,
+                             baseColor, kDiffuse, kSpecular, shininess);
   }
-#endif
+
   out_FragColor = vec4(color, 1.0);
 
   #include <fog_fragment>

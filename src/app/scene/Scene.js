@@ -10,7 +10,7 @@ import Tiles from 'app/scene/tiles';
 
 const Scene = () => {
   const { camera } = useThree();
-  const { terrain, lights: { hemisphere, directional }, tileSideLength } = sceneParams;
+  const { terrain, lights: { directional }, tileSideLength } = sceneParams;
 
   const fogOptions = useSelector(getFogOptions);
 
@@ -31,9 +31,6 @@ const Scene = () => {
 
   return (
     <>
-      <hemisphereLight
-        args={[hemisphere.skyColor, hemisphere.groundColor, hemisphere.intensity]}
-      />
       {
         directional.map(({ direction, intensity }) => (
           <directionalLight

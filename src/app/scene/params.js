@@ -27,11 +27,6 @@ const params = Object.freeze({
         intensity: 0.4,
       },
     ],
-    hemisphere: {
-      skyColor: 'lightblue',
-      groundColor: 'brown',
-      intensity: 0.2,
-    },
   },
   fog: {
     color: 'lightgrey',
@@ -45,13 +40,15 @@ const params = Object.freeze({
     colorMap: terrainMap('diff'),
     colorMapScale: [10, 10],
     normalMap: terrainMap('nor'),
-    roughnessMap: terrainMap('rough'),
-    metalness: 0.5,
     uniforms: {
       heightMajor: 4.0,
       spacingMajor: 4.0,
       heightMinor: 0.3,
       spacingMinor: 0.8,
+      kAmbient: 0.3,
+      kDiffuse: 0.6,
+      kSpecular: 0.1,
+      shininess: 128.0,
     },
   },
   water: {
